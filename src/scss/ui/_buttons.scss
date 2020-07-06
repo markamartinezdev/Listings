@@ -1,0 +1,37 @@
+.button {
+  background-color: $color-primary;
+  font-size: 20px;
+  border: none;
+  padding: 5px 15px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.07);
+  color: #fff;
+  text-shadow: 0 2px 4px #00000047;
+  text-transform: capitalize;
+  transition: background-color ease-in-out $transition-button;
+  cursor: pointer;
+  &:hover{
+    background-color: $color-secondary;
+  }
+  &:focus {
+    outline: none;
+  }
+  @include onClick() {
+    box-shadow: 0 0 2px 0 darken($color-primary, 1%);
+  }
+  &--alt {
+    font-size: 15px;
+    border: solid 1px;
+    color: $color-primary;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    &:hover {
+      color: $color-secondary;
+      background: transparent;
+    }
+  }
+  &-submit {
+    background: #6EEA81;
+  }
+}

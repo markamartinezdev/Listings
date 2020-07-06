@@ -1,0 +1,17 @@
+.range-selector {
+  &--divider {
+    width: 5%;
+    padding: 0 5px;
+    height: 2px;
+    background: $color-primary;
+  }
+  &--input {
+    margin-bottom: 0;
+    width: 45%;
+  }
+  &--inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

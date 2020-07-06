@@ -1,0 +1,28 @@
+@mixin icon($icon) {
+  &:before {
+    content: $icon;
+  }
+}
+
+.icon {
+  &:before {
+    font-family: $font-icons;
+  }
+  // Default icon
+  &--spinner {
+    @include spin(5000ms);
+    @include icon('\e982');
+  }
+  &--heart {
+    @include icon('\e901');
+    &-filled {
+      @include icon('\e902');
+    }
+  }
+  &--search {
+    @include icon('\e900');
+  }
+  &--close {
+    @include icon('\ea0f');
+  }
+}

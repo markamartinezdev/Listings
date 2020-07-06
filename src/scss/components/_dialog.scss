@@ -1,0 +1,19 @@
+.dialog {
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.26);
+  width: 90%;
+  padding: 100px 20px;
+  max-width: 780px;
+  &--header {
+    &-text {
+      color: $color-primary;
+      font-size: 35px;
+      text-transform: capitalize;
+      margin: 5px 0;
+    }
+    &-sub-text {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 5px 0 2em;
+    }
+  }
+}

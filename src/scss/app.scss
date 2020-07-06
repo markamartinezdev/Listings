@@ -1,0 +1,21 @@
+/*
+ SCSS file imported to app
+*/
+
+// CSS normalize
+@import './normalize';
+
+// Animations
+@import './animations';
+
+// Fonts
+@import './fonts';
+
+// Basic ui
+@import './ui/ui';
+
+// Components
+@import './components/components';
+
+// Views 
+@import './views/views'

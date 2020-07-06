@@ -1,0 +1,22 @@
+.selector {
+  &--items {
+    display: flex;
+  }
+  &--item {
+    padding: 10px 10px;
+    background-color: $color-primary;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    cursor: pointer;
+    border-left: solid 1px;
+    &:hover {
+      background-color: $color-secondary;
+    }
+    &.active {
+      background-color: $color-text;
+    }
+  }
+}

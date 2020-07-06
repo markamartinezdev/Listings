@@ -1,0 +1,27 @@
+.map {
+  .listing {
+    width: 100%;
+    margin: 0;
+    border: none;
+    min-width: 200px;
+    &--favorite {
+      top: 50%;
+    }
+  }
+  // Leaflet overwrites
+  .leaflet-popup-content {
+    margin: 0;
+  }
+  .leaflet-popup-content-wrapper {
+    padding: 0;
+    overflow: hidden;
+  }
+  .leaflet-container a.leaflet-popup-close-button {
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+    &:hover {
+      font-size: 19px;
+      color: #fff;
+    }
+  }
+}

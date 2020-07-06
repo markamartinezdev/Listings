@@ -1,0 +1,90 @@
+.listing {
+  width: calc(calc(100% / 4) - calc(#{$listingGutter} * 2));
+  margin: $listingGutter;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 2px $color-primary;
+  position: relative;
+  box-shadow: 0 5px 7px -6px lighten($color-primary, 30%);
+  cursor: pointer;
+  &--image {
+    flex: 1;
+    min-height: 150px;
+    background-position: center;
+    background-size: cover;
+  }
+  &--details {
+    padding: .5em;
+    border-left: solid 1px #eee;
+    border-right: solid 1px #eee;
+    text-align: left;
+  }
+  &--price {
+    font-size: 20px;
+    font-weight: bold;
+    align-self: self-end;
+    line-height: 1;
+    padding: 0.3em 0;
+  }
+  &--size {
+    font-size: 12px;
+    align-self: flex-end;
+    padding: 0.3em 0;
+    &-item {
+      padding-right: .5em;
+      &:not(:first-of-type) {
+        padding-left: .5em;
+        border-left: solid 1px;
+      }
+    }
+  }
+  &--address {
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+    padding: 0.3em 0;
+    &-house-number {
+      text-transform: uppercase;
+    }
+    &-city-state-zip {
+      font-size: 12px;
+      display: block;
+      font-weight: normal;
+      text-transform: capitalize;
+    }
+  }
+  &--type {
+    font-size: 12px;
+    padding: 0.3em 0;
+    // Hiding this for now, not sure if we will use it
+    display: none;
+  }
+  &--favorite {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5em;
+    color: #fff;
+    opacity: .7;
+    &.active {
+      color: #f9234b;
+    }
+    &:hover {
+      font-size: 1.6em;
+    }
+    &:before {
+      text-shadow: 0 0 5px #676666;
+    }
+  }
+  &--alert {
+    padding: 5px;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background-color: rgba(2, 52, 79, 0.85)
+  }
+}

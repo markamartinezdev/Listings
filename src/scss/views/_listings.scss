@@ -1,0 +1,11 @@
+// Listings page
+.app-body.listings {
+  display: flex;
+  flex-direction: column;
+  .map {
+    flex: 1;
+    overflow: hidden;
+    margin: 0 10px;
+    border-radius: 15px;
+  }
+}

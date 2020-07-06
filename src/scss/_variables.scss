@@ -1,0 +1,28 @@
+/*
+ File is consumed in vue.config.js
+*/
+
+// Colors
+$color-primary: #1aa0e8 !default;
+$color-secondary: darken($color-primary, 8%) !default;
+$color-text: #2D3A4D !default;
+
+// Transition speeds
+$transition-default: 0.2s !default;
+$transition-button: $transition-default !default;
+
+// Fonts
+$font-icons: icons !default;
+
+// Sizing
+
+// Listing
+$listingGutter: 10px !default;
+
+// Actions
+@mixin onClick {
+  &:active {
+    @content
+  }
+}
+
