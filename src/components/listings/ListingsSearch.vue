@@ -18,6 +18,7 @@
             :key="listing.id"
             :listing="listing"
           />
+          <!-- add a pagination either at bottom of list or fixed at the top. maybe layzyload list? -->
         </div>
       </div>
       <listings-map class="map" :listings="listings" :center="mapCenter" @centerUpdated="updateCenter" :initZoom="13" :activePopup="activeListingPopup"/>
@@ -28,7 +29,7 @@
 <script>
 /*
 
-  Make this component into a view that is shared by buy and rent
+  Make this component into a view that is shared by buy and rent urls instead of having a rent and buy view
 
 */
 
@@ -64,7 +65,7 @@ export default {
       searchQuery: 'search/query'
     }),
     title() {
-      return`Homes to ${this.$route.name} near ${this.searchCity}`
+      return `Homes to ${this.$route.name} ${this.searchCity ? 'near ' + this.searchCity : ''}`
     },
     numberOfListings() {
       return this.listings.length
@@ -97,6 +98,7 @@ export default {
 
       // Clear listings
       this.setListings([])
+      this.searchCity = ''
 
       // Test data will be replaced with ajax call once api is ready
       setTimeout(()=>{
