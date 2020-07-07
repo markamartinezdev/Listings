@@ -1,6 +1,6 @@
 <template>
   <div class="form--input-container">
-    <input class="form--input form--input-search" :value="value" type="text" @input="updateValue" :placeholder="placeholder"/>
+    <input class="form--input form--input-search" :value="value" type="text" @input="updateValue" :placeholder="placeholder" @keypress.enter="search"/>
     <icon class="form--input-search-icon" :icon="'search'" @click="search"/>
   </div>
 </template>

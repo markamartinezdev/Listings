@@ -1,5 +1,5 @@
 // Listings page
-.app-body.listings {
+.app-body--listings {
   display: flex;
   flex-direction: column;
   .map {
@@ -7,5 +7,35 @@
     overflow: hidden;
     margin: 0 10px;
     border-radius: 15px;
+  }
+}
+.listings {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  &--listings {
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  &--header {
+    padding: .5em 1em;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+      font-size: 20px;
+    }
+  }
+  &--loading {
+    padding: 4em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+      font-size: 4em;
+    }
   }
 }

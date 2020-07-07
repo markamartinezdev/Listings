@@ -2,11 +2,11 @@
   <div class="search-bar">
     <div class="form is-flex">
       <div class="search-bar--item">
-        <search-input :placeholder="'state/city/zip'" v-model="searchOptions.location"/>
+        <search-input :placeholder="'state/city/zip'" v-model="searchOptions.location" @search="search"/>
       </div>
 
       <div class="search-bar--item">
-        <ui-button class="button--alt" :text="'size'" @click="toggleActivePopoup('size')"/>
+        <ui-button class="button--alt" :text="'size'" @click="toggleActivePopout('size')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'size'}">
           <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
           <range-selector :title="'Square Feet'" v-model="searchOptions.sqft"/>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="search-bar--item">
-        <ui-button class="button--alt" :text="'price'" @click="toggleActivePopoup('price')"/>
+        <ui-button class="button--alt" :text="'price'" @click="toggleActivePopout('price')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'price'}">
           <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
           <range-selector :title="'Price'" v-model="searchOptions.price" :type="'price'"/>
@@ -22,7 +22,7 @@
       </div>
 
       <div class="search-bar--item">
-        <ui-button class="button--alt" :text="'bed & bath'" @click="toggleActivePopoup('bed&bath')"/>
+        <ui-button class="button--alt" :text="'bed & bath'" @click="toggleActivePopout('bed&bath')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'bed&bath'}">
           <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
           <selector :title="'Bed(s)'" :items="bedNumber" v-model="searchOptions.minOfBeds"/>
@@ -135,13 +135,17 @@ export default {
       setQuery: 'search/setQuery',
       setSavedSearches: 'user/setSavedSearches'
     }),
-    toggleActivePopoup(popout = null) {
-      this.activePopout = popout
+    toggleActivePopout(popout = null) {
+      this.activePopout = popout == this.activePopout ? null : popout
     },
     saveSearch() {
       if (this.searchQuery.length) {
         this.setSavedSearches(this.searchQuery)
       }
+    },
+    search() {
+      this.activePopout = null
+      this.$emit('search')
     }
   },
   components: {

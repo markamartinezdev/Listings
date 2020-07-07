@@ -1,8 +1,25 @@
 <template>
-  <app-body class="listings">
-    <search-bar ref="searchBar" />
+  <app-body class="app-body--listings">
+    <search-bar ref="searchBar" @search="fetchListings"/>
     <div class="is-flex" :style="{height: `calc(100% - ${searchHeight}px)`}">
-      <listings :listings="listings" :title="title" @mouse_over_listing="mouseOverListing" @mouse_left_listing="mouseLeftListing"/>
+      <div class="listings">
+        <div class="listings--header">
+          <h1>{{title}}</h1>
+          <span>{{numberOfListings}} listings</span>
+        </div>
+        <div v-if="loading" class="listings--loading">
+          <icon/>
+        </div>
+        <div v-else class="listings--listings">
+          <listing
+            v-for="listing in listings"
+            @mouseenter="mouseOverListing(listing)"
+            @mouseleave="mouseLeftListing(listing)"
+            :key="listing.id"
+            :listing="listing"
+          />
+        </div>
+      </div>
       <listings-map class="map" :listings="listings" :center="mapCenter" @centerUpdated="updateCenter" :initZoom="13" :activePopup="activeListingPopup"/>
     </div>
   </app-body>
@@ -16,9 +33,9 @@
 */
 
 import { mapGetters, mapActions } from 'vuex'
-import { AppBody } from '@/components/util/ui/'
+import { AppBody, Icon } from '@/components/util/ui/'
 import { SearchBar, Collapser } from '@/components/util/'
-import { Listings, ListingsMap } from '@/components/listings/'
+import { Listings, Listing, ListingsMap } from '@/components/listings/'
 
 // Test data - only for dev
 import { testListings } from '../../../testData/'
@@ -29,6 +46,7 @@ export default {
       searchHeight: 0,
       activeListingPopup: null,
       searchCity: '',
+      loading: true,
       mapCenter: {
           lat: 0,
           lng: 0
@@ -47,6 +65,9 @@ export default {
     }),
     title() {
       return`Homes to ${this.$route.name} near ${this.searchCity}`
+    },
+    numberOfListings() {
+      return this.listings.length
     }
   },
   methods: {
@@ -72,10 +93,19 @@ export default {
       }
     },
     fetchListings() {
+      this.loading = true
+
+      // Clear listings
+      this.setListings([])
+
       // Test data will be replaced with ajax call once api is ready
-      this.setListings(testListings.listings)
-      this.searchCity = testListings.location.city
-      this.mapCenter = testListings.location.latLng
+      setTimeout(()=>{
+        this.setListings(testListings.listings())
+        this.searchCity = testListings.location.city
+        this.mapCenter = testListings.location.latLng
+        this.loading = false
+      }, 500)
+
     }
   },
   destroyed() {
@@ -86,7 +116,9 @@ export default {
     Listings,
     ListingsMap,
     SearchBar,
-    Collapser
+    Collapser,
+    Listing,
+    Icon
   }
 }
 </script>

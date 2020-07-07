@@ -31,11 +31,13 @@ const routes = [
   },
   {
     path: '/saved_searches',
+    redirect: '/buy',
     name: 'saved_searches',
-    component: SavedSearches
+    component: Buy
   },
   {
     path: '/favorites',
+    redirect: '/buy',
     name: 'favorites',
     component: Buy
   },
