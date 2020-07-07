@@ -8,7 +8,7 @@
       <div class="search-bar--item">
         <ui-button class="button--alt" :text="'size'" @click="toggleActivePopout('size')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'size'}">
-          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
+          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopout"/>
           <range-selector :title="'Square Feet'" v-model="searchOptions.sqft"/>
         </div>
       </div>
@@ -16,7 +16,7 @@
       <div class="search-bar--item">
         <ui-button class="button--alt" :text="'price'" @click="toggleActivePopout('price')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'price'}">
-          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
+          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopout"/>
           <range-selector :title="'Price'" v-model="searchOptions.price" :type="'price'"/>
         </div>
       </div>
@@ -24,7 +24,7 @@
       <div class="search-bar--item">
         <ui-button class="button--alt" :text="'bed & bath'" @click="toggleActivePopout('bed&bath')"/>
         <div class="search-bar--item-popout" :class="{active: activePopout == 'bed&bath'}">
-          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopoup"/>
+          <icon class="search-bar--item-popout-close-icon" :icon="'close'" @click="toggleActivePopout"/>
           <selector :title="'Bed(s)'" :items="bedNumber" v-model="searchOptions.minOfBeds"/>
           <selector :title="'Bath(s)'" :items="bedNumber" v-model="searchOptions.minOfBaths"/>
         </div>
