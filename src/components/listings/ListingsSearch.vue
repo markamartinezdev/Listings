@@ -36,7 +36,7 @@
 import { mapGetters, mapActions } from 'vuex'
 import { AppBody, Icon } from '@/components/util/ui/'
 import { SearchBar, Collapser } from '@/components/util/'
-import { Listings, Listing, ListingsMap } from '@/components/listings/'
+import { Listing, ListingsMap } from '@/components/listings/'
 
 // Test data - only for dev
 import { testListings } from '../../../testData/'
@@ -115,7 +115,6 @@ export default {
   },
   components: {
     AppBody,
-    Listings,
     ListingsMap,
     SearchBar,
     Collapser,
